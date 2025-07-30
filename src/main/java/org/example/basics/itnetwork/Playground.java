@@ -1,5 +1,6 @@
 package org.example.basics.itnetwork;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Playground {
@@ -162,39 +163,59 @@ public class Playground {
 //            System.out.println(cislo);
 //        }
 
+//        Scanner scanner = new Scanner(System.in);
+//        String[] zelenina = {"zelí", "okurka", "rajče", "paprika", "ředkev", "mrkev", "brokolice"};
+//        String[] ovoce = {"jablko", "hruška", "pomeranč", "jahoda", "banán", "kiwi", "malina"};
+
+//        String pokracovat = "ano";;
+//        int pocetSlov = 0;
+//
+//        while (pokracovat.equalsIgnoreCase("ano")) {
+//            System.out.println("Zadej název libovolného ovoce nebo zeleniny:");
+//            String zadaneSlovo = scanner.nextLine().toLowerCase();
+//            String hlaska = "Tvoje slovo nemám v seznamu";
+//
+//            for (String z : zelenina) {
+//                if (z.equals(zadaneSlovo)) {
+//                    hlaska = "Zadal jsi zeleninu";
+//                }
+//            }
+//
+//            for (String o : ovoce) {
+//                if (o.equals(zadaneSlovo)) {
+//                    hlaska = "Zadal jsi ovoce";
+//                }
+//            }
+//
+//            pocetSlov++;
+//
+//            System.out.println(hlaska);
+//            System.out.println("Přeješ si zadat další slovo? (ano/ne)");
+//            pokracovat = scanner.nextLine();
+//            if (pokracovat.equalsIgnoreCase("ne")) {
+//                pokracovat = "ne";
+//                System.out.println("Zadal jsi " + pocetSlov + " slov");
+//            }
+//        }
+
+
         Scanner scanner = new Scanner(System.in);
-        String[] zelenina = {"zelí", "okurka", "rajče", "paprika", "ředkev", "mrkev", "brokolice"};
-        String[] ovoce = {"jablko", "hruška", "pomeranč", "jahoda", "banán", "kiwi", "malina"};
 
-        String pokracovat = "ano";;
-        int pocetSlov = 0;
+        System.out.println("Zadej počet čísel: ");
+        int pocet = Integer.parseInt(scanner.nextLine());
 
-        while (pokracovat.equalsIgnoreCase("ano")) {
-            System.out.println("Zadej název libovolného ovoce nebo zeleniny:");
-            String zadaneSlovo = scanner.nextLine();
-            String hlaska = "Tvoje slovo nemám v seznamu";
+        int[] cisla =  new int[pocet];
 
-            for (String z : zelenina) {
-                if (z.equals(zadaneSlovo)) {
-                    hlaska = "Zadal jsi zeleninu";
-                    pocetSlov++;
-                }
-            }
+        for (int i = 0; i < pocet; i++) {
+            System.out.println("Zadej " + (i+1) + ". číslo:");
+            cisla[i] = Integer.parseInt(scanner.nextLine());
+        }
 
-            for (String o : ovoce) {
-                if (o.equals(zadaneSlovo)) {
-                    hlaska = "Zadal jsi ovoce";
-                    pocetSlov++;
-                }
-            }
+        int[] serazenePole = Arrays.copyOf(cisla, pocet);
+        Arrays.sort(serazenePole);
 
-            System.out.println(hlaska);
-            System.out.println("Přeješ si zadat další slovo? (ano/ne)");
-            pokracovat = scanner.nextLine();
-            if (pokracovat.equalsIgnoreCase("ne")) {
-                pokracovat = "ne";
-                System.out.println("Zadal jsi " + pocetSlov + " slov");
-            }
+        for (int cislo : cisla) {
+            System.out.println(cislo + " se od mediánu odchyluje o " + (cislo - serazenePole[cisla.length/2]));
         }
     }
 }
