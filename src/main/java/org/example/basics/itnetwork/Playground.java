@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Playground {
     public static void basics() {
-        sestAzSedum();
+        osmAzDevet();
     }
 
     public static void triAzPet() {
@@ -56,5 +56,73 @@ public class Playground {
         String vstup = scanner.nextLine();
 
         System.out.println(vstup.toLowerCase().contains("itnetwork"));
+    }
+
+    public static void osmAzDevet() {
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Zadej své jméno: ");
+//        String jmeno = scanner.nextLine();
+//
+//        if (jmeno.length() <= 10 && jmeno.length() >= 3) {
+//            System.out.println("Normální jméno.");
+//        } else {
+//            System.out.println("Máš moc krátké nebo moc dlouhé jméno!");
+//        }
+
+
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Zadej smajlíka: ");
+//        String smajlik = scanner.nextLine();
+//
+//        String text;
+//        switch (smajlik) {
+//            case ":-)":
+//            case ":)":
+//                text = "Tvůj smajlík je veselý";
+//                break;
+//            case ":-(":
+//            case ":(":
+//                text = "Tvůj smajlík je smutný";
+//                break;
+//            case ":-*":
+//            case ":*":
+//                text = "Tvůj smajlík je zamilovaný";
+//                break;
+//            case ":-P":
+//            case ":P":
+//                text = "Tvůj smajlík je s vyplazeným jazykem";
+//                break;
+//            default:
+//                text = "Tvůj smajlík je neznámý";
+//                break;
+//        }
+//
+//        System.out.println(text);
+
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Zadejte postupně koeficienty a,b,c kvadratické rovnice ax^2+bx+c=0 : ");
+        double a = Double.parseDouble(scanner.nextLine());
+        double b = Double.parseDouble(scanner.nextLine());
+        double c = Double.parseDouble(scanner.nextLine());
+
+        double diskriminant = b*b - 4*a*c;
+
+        if (a == 0){
+            System.out.println("Není kvadratická rovnice");
+        } else if (diskriminant > 0) {
+            double x1 = (-b + Math.sqrt(diskriminant)) / (2 * a);
+            double x2 = (-b - Math.sqrt(diskriminant)) / (2 * a);
+            System.out.println("Rovnice má 2 reálné kořeny x1 = " + x1 + ", x2 = " + x2);
+        } else if (diskriminant == 0) {
+            double x = -b / (2 * a);
+            System.out.println("Rovnice má jeden kořen x = " + x);
+        } else if (diskriminant < 1) {
+            System.out.println("Neexistuje řešení v oblasti reálných čísel");
+        }
+    }
+
+    public static void desetAzJedenact() {
+
     }
 }
