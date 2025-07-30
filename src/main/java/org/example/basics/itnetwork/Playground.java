@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Playground {
     public static void basics() {
-        desetAzJedenact();
+        dvanact();
     }
 
     public static void triAzPet() {
@@ -147,6 +147,53 @@ public class Playground {
         for (int i = 1; i <= 6; i++) {
             for (int j = 1; j <= 6; j++) {
                 System.out.print("(" + i + ", " + j + ") ");
+            }
+        }
+    }
+
+    public static void dvanact() {
+//        int[] cisla = new int[10];
+//
+//        for (int i = 10; i > 0; i--) {
+//            cisla[10 - i] = i;
+//        }
+//
+//        for (int cislo : cisla) {
+//            System.out.println(cislo);
+//        }
+
+        Scanner scanner = new Scanner(System.in);
+        String[] zelenina = {"zelí", "okurka", "rajče", "paprika", "ředkev", "mrkev", "brokolice"};
+        String[] ovoce = {"jablko", "hruška", "pomeranč", "jahoda", "banán", "kiwi", "malina"};
+
+        String pokracovat = "ano";;
+        int pocetSlov = 0;
+
+        while (pokracovat.equalsIgnoreCase("ano")) {
+            System.out.println("Zadej název libovolného ovoce nebo zeleniny:");
+            String zadaneSlovo = scanner.nextLine();
+            String hlaska = "Tvoje slovo nemám v seznamu";
+
+            for (String z : zelenina) {
+                if (z.equals(zadaneSlovo)) {
+                    hlaska = "Zadal jsi zeleninu";
+                    pocetSlov++;
+                }
+            }
+
+            for (String o : ovoce) {
+                if (o.equals(zadaneSlovo)) {
+                    hlaska = "Zadal jsi ovoce";
+                    pocetSlov++;
+                }
+            }
+
+            System.out.println(hlaska);
+            System.out.println("Přeješ si zadat další slovo? (ano/ne)");
+            pokracovat = scanner.nextLine();
+            if (pokracovat.equalsIgnoreCase("ne")) {
+                pokracovat = "ne";
+                System.out.println("Zadal jsi " + pocetSlov + " slov");
             }
         }
     }
