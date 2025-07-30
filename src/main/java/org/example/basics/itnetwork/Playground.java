@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Playground {
     public static void basics() {
-        dvanact();
+        ctrnact();
     }
 
     public static void triAzPet() {
@@ -216,6 +216,32 @@ public class Playground {
 
         for (int cislo : cisla) {
             System.out.println(cislo + " se od mediánu odchyluje o " + (cislo - serazenePole[cisla.length/2]));
+        }
+    }
+
+    public static void ctrnact(){
+//        System.out.println("ASCII tabulka");
+//        System.out.println("=============");
+//        for (int hodnotaAscii = 33; hodnotaAscii < 256; hodnotaAscii++) {
+//            System.out.println(hodnotaAscii + ":" + (char)hodnotaAscii);
+//        }
+
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Zadej palindrom: ");
+        String slovo = scanner.nextLine();
+
+        String slovoPozpatku = "";
+
+        for (int i = 0; i < slovo.length(); i++) {
+            slovoPozpatku += slovo.charAt(slovo.length() - i - 1);
+        }
+
+        if (slovo.equals(slovoPozpatku)) {
+            System.out.println("Ano, toto je palindrom.");
+        }  else {
+            System.out.println("Toto není palindrom.");
         }
     }
 }
