@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Playground {
     public static void basics() {
-        osmAzDevet();
+        desetAzJedenact();
     }
 
     public static void triAzPet() {
@@ -123,6 +123,31 @@ public class Playground {
     }
 
     public static void desetAzJedenact() {
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Kolik ryb si dáš k večeři?");
+//        int pocet = Integer.parseInt(scanner.nextLine());
+//
+//        for (int i = 0; i < pocet; i++) {
+//            System.out.println("<° )))-<");
+//        }
 
+
+//        for (int i = 10; i > 0; i--) {
+//            if (i >= 5) {
+//                System.out.println(i + " zelených láhví stojí na stole a jedna láhev spadne");
+//            } else if (i > 1) {
+//                System.out.println(i + " zelené láhve stojí na stole a jedna láhev spadne");
+//            } else {
+//                System.out.println(i + " zelená láhev stojí na stole a jedna láhev spadne");
+//            }
+//        }
+
+
+        System.out.println("Kombinace hodů dvěma šestistěnnými kostkami:");
+        for (int i = 1; i <= 6; i++) {
+            for (int j = 1; j <= 6; j++) {
+                System.out.print("(" + i + ", " + j + ") ");
+            }
+        }
     }
 }
