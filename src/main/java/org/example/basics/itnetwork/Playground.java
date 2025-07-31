@@ -290,6 +290,7 @@ public class Playground {
 
         int k = 0;
         for (int i = 0; i < puvodniZprava.length(); i++) {
+//            todo: pokud se dostane písmeno na určitou hodnotu, tak odečíst počet znaků
 //            if (k < 4) {
                 zasifrovano[i] = (char)(zasifrovanaZpravaCisla[i] + 96);
 //                k++;
