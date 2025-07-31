@@ -227,21 +227,82 @@ public class Playground {
 //        }
 
 
+//        Scanner scanner = new Scanner(System.in);
+//
+//        System.out.println("Zadej palindrom: ");
+//        String slovo = scanner.nextLine();
+//
+//        String slovoPozpatku = "";
+//
+//        for (int i = 0; i < slovo.length(); i++) {
+//            slovoPozpatku += slovo.charAt(slovo.length() - i - 1);
+//        }
+//
+//        if (slovo.equals(slovoPozpatku)) {
+//            System.out.println("Ano, toto je palindrom.");
+//        }  else {
+//            System.out.println("Toto není palindrom.");
+//        }
+
+
+
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Zadej palindrom: ");
-        String slovo = scanner.nextLine();
+//        System.out.println("Zadejte text k zašifrování: ");
+//        String puvodniZprava = scanner.nextLine();
+//
+//        System.out.println("Zadejte heslo: ");
+//        String heslo = scanner.nextLine();
 
-        String slovoPozpatku = "";
+        String puvodniZprava = "moribundus";
+        String heslo = "ahoj";
 
-        for (int i = 0; i < slovo.length(); i++) {
-            slovoPozpatku += slovo.charAt(slovo.length() - i - 1);
+        String zasifrovanaZprava = "";
+
+        int[] hesloCisla = new int[heslo.length()];
+        int[] puvodniZpravaCisla = new int[puvodniZprava.length()];
+        int[] zasifrovanaZpravaCisla = new int[puvodniZprava.length()];
+
+        char[] zasifrovano =  new char[puvodniZprava.length()];
+
+        for (int i = 0; i < heslo.length(); i++) {
+            hesloCisla[i] = heslo.charAt(i) - 96;
         }
 
-        if (slovo.equals(slovoPozpatku)) {
-            System.out.println("Ano, toto je palindrom.");
-        }  else {
-            System.out.println("Toto není palindrom.");
+        for (int i = 0; i < puvodniZprava.length(); i++) {
+            puvodniZpravaCisla[i] = puvodniZprava.charAt(i) - 96;
         }
+
+        int j = 0;
+        int hesloChar = 0;
+        for (int i = 0; i < puvodniZprava.length(); i++) {
+            if (j < 4) {
+                hesloChar = (heslo.charAt(j) - 96);
+                j++;
+            } else {
+                j = 0;
+                hesloChar = (heslo.charAt(j) - 96);
+                j++;
+            }
+            zasifrovanaZpravaCisla[i] = hesloChar + (puvodniZprava.charAt(i) - 96);
+
+        }
+
+        int k = 0;
+        for (int i = 0; i < puvodniZprava.length(); i++) {
+//            if (k < 4) {
+                zasifrovano[i] = (char)(zasifrovanaZpravaCisla[i] + 96);
+//                k++;
+//            }
+
+        }
+
+
+//        System.out.println(Arrays.toString(hesloCisla));
+//        System.out.println(Arrays.toString(puvodniZpravaCisla));
+//        System.out.println(Arrays.toString(zasifrovanaZpravaCisla));
+        System.out.println(Arrays.toString(zasifrovano));
+
+        System.out.println(zasifrovanaZprava);
     }
 }
