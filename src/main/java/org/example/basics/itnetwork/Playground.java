@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Playground {
     public static void basics() {
-        ctrnact();
+        patnact();
     }
 
     public static void triAzPet() {
@@ -346,5 +346,53 @@ public class Playground {
 //        System.out.println(Arrays.toString(zasifrovano));
 //
 //        System.out.println(zasifrovanaZprava);
+    }
+
+    public static void patnact() {
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Výpočet průměru známek");
+//        System.out.println("Zadejte známky oddělené čárkou: ");
+//        String vstup = scanner.nextLine();
+//
+//        String[] vstupArr = vstup.split(",");
+//
+//        double soucet = 0;
+//        for (int i = 0; i < vstupArr.length; i++) {
+//            soucet += Integer.parseInt(vstupArr[i]);
+//        }
+//        System.out.println("Průměr: " + soucet/vstupArr.length);
+
+
+        String abeceda = "abcdefghijklmnopqrstuvwxyz";
+        String[] morseovyZnaky = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....",
+                "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-",
+                "...-", ".--", "-..-", "-.--", "--.."};
+
+        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Zadejte zprávu k zakódování: ");
+//        String puvodniZprava = scanner.nextLine().toLowerCase();
+        String puvodniZprava = "Tento program jsem vytvoril sam, podivejte, co dovede.";
+        String zasifrovanaZprava = "";
+
+        String[] puvodniZpravaMalymaPismenama = puvodniZprava.toLowerCase().split("");
+
+        for (String znak : puvodniZpravaMalymaPismenama) {
+			String morseuvZnak = "";
+            int index = -1;
+
+            for (int i = 0; i < abeceda.length(); i++) {
+                if (abeceda.contains(znak)) {
+					index = abeceda.indexOf(znak);
+                }
+            }
+
+            if (index >= 0) {
+                morseuvZnak = morseovyZnaky[index] + " ";
+            }
+
+            zasifrovanaZprava += morseuvZnak;
+		}
+
+		System.out.println("Zakódovaná zpráva: " + zasifrovanaZprava);
     }
 }
