@@ -248,62 +248,103 @@ public class Playground {
 
         Scanner scanner = new Scanner(System.in);
 
-//        System.out.println("Zadejte text k zašifrování: ");
-//        String puvodniZprava = scanner.nextLine();
-//
-//        System.out.println("Zadejte heslo: ");
-//        String heslo = scanner.nextLine();
+        System.out.println("Zadejte text k zašifrování: ");
+        String puvodniZprava = scanner.nextLine();
 
-        String puvodniZprava = "moribundus";
-        String heslo = "ahoj";
+        System.out.println("Zadejte heslo: ");
+        String heslo = scanner.nextLine();
+
+        int pocitadlo = 0;
+        while (puvodniZprava.length() > heslo.length()) {
+            heslo += heslo.charAt(pocitadlo);
+            pocitadlo++;
+            if (pocitadlo == heslo.length()) {
+                pocitadlo = 0;
+            }
+        }
 
         String zasifrovanaZprava = "";
 
-        int[] hesloCisla = new int[heslo.length()];
-        int[] puvodniZpravaCisla = new int[puvodniZprava.length()];
-        int[] zasifrovanaZpravaCisla = new int[puvodniZprava.length()];
-
-        char[] zasifrovano =  new char[puvodniZprava.length()];
-
-        for (int i = 0; i < heslo.length(); i++) {
-            hesloCisla[i] = heslo.charAt(i) - 96;
-        }
-
         for (int i = 0; i < puvodniZprava.length(); i++) {
-            puvodniZpravaCisla[i] = puvodniZprava.charAt(i) - 96;
-        }
-
-        int j = 0;
-        int hesloChar = 0;
-        for (int i = 0; i < puvodniZprava.length(); i++) {
-            if (j < 4) {
-                hesloChar = (heslo.charAt(j) - 96);
-                j++;
+            int puvodniZpravaAscii = (int)puvodniZprava.charAt(i);
+            int hesloAscii = (int)heslo.charAt(i) - 96;
+            char pismeno;
+            if (puvodniZpravaAscii + hesloAscii > 122) {
+                pismeno = (char)((puvodniZpravaAscii + hesloAscii) - 26);
             } else {
-                j = 0;
-                hesloChar = (heslo.charAt(j) - 96);
-                j++;
+                pismeno = (char)(puvodniZpravaAscii + hesloAscii);
             }
-            zasifrovanaZpravaCisla[i] = hesloChar + (puvodniZprava.charAt(i) - 96);
 
+            zasifrovanaZprava += pismeno;
         }
-
-        int k = 0;
-        for (int i = 0; i < puvodniZprava.length(); i++) {
-//            todo: pokud se dostane písmeno na určitou hodnotu, tak odečíst počet znaků
-//            if (k < 4) {
-                zasifrovano[i] = (char)(zasifrovanaZpravaCisla[i] + 96);
-//                k++;
-//            }
-
-        }
-
-
-//        System.out.println(Arrays.toString(hesloCisla));
-//        System.out.println(Arrays.toString(puvodniZpravaCisla));
-//        System.out.println(Arrays.toString(zasifrovanaZpravaCisla));
-        System.out.println(Arrays.toString(zasifrovano));
-
         System.out.println(zasifrovanaZprava);
+
+//        String puvodniZprava = "moribundus";
+//        String heslo = "ahoj";
+//
+//        String zasifrovanaZprava = "";
+//
+//        int[] hesloCisla = new int[heslo.length()];
+//        int[] puvodniZpravaCisla = new int[puvodniZprava.length()];
+//        int[] zasifrovanaZpravaCisla = new int[puvodniZprava.length()];
+//
+//        char[] zasifrovano =  new char[puvodniZprava.length()];
+//
+//        for (int i = 0; i < heslo.length(); i++) {
+//            hesloCisla[i] = heslo.charAt(i) - 96;
+//        }
+//
+//        for (int i = 0; i < puvodniZprava.length(); i++) {
+//            puvodniZpravaCisla[i] = puvodniZprava.charAt(i) - 96;
+//        }
+//
+//        int j = 0;
+//        int hesloCisloOKolikSeMaPosunout = 0;
+//        for (int i = 0; i < puvodniZprava.length(); i++) {
+//                if (j < 4) {
+//                    if (heslo.charAt(j) > 122) {
+//                        System.out.println("nad 122");
+//                    System.out.println(heslo.charAt(j) - 26);
+//                        hesloCisloOKolikSeMaPosunout = 122 - heslo.charAt(j) + 1;
+//                        j++;
+//
+//                    } else {
+//                        System.out.print(heslo.charAt(j) + ", ");
+//                System.out.print((int)heslo.charAt(j) + ", ");
+////                        System.out.print((heslo.charAt(j) - 96));
+//                        System.out.println();
+////                        System.out.println(122 - 96);
+//
+//                        hesloCisloOKolikSeMaPosunout = (heslo.charAt(j) - 96);
+//                        j++;
+//                    }
+//                } else {
+//                    j = 0;
+//                    hesloCisloOKolikSeMaPosunout = (heslo.charAt(j) - 96);
+//                    j++;
+//                }
+//                zasifrovanaZpravaCisla[i] = hesloCisloOKolikSeMaPosunout + (puvodniZprava.charAt(i) - 96);
+////            } else {
+////                System.out.println("nad 122");
+////            }
+//        }
+//
+//        int k = 0;
+//        for (int i = 0; i < puvodniZprava.length(); i++) {
+////            todo: pokud se dostane písmeno na určitou hodnotu, tak odečíst počet znaků
+////            if (k < 4) {
+//                zasifrovano[i] = (char)(zasifrovanaZpravaCisla[i] + 96);
+////                k++;
+////            }
+//
+//        }
+//
+//        System.out.println();
+////        System.out.println(Arrays.toString(hesloCisla));
+////        System.out.println(Arrays.toString(puvodniZpravaCisla));
+////        System.out.println(Arrays.toString(zasifrovanaZpravaCisla));
+//        System.out.println(Arrays.toString(zasifrovano));
+//
+//        System.out.println(zasifrovanaZprava);
     }
 }
