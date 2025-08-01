@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Playground {
     public static void basics() {
-        patnact();
+        osmnactAzDvacet();
     }
 
     public static void triAzPet() {
@@ -29,7 +29,7 @@ public class Playground {
         System.out.println("Jeho obsah je: " + Math.PI*Math.pow(polomer, 2) + " cm^2");
     }
 
-    public static void  sestAzSedum() {
+    public static void sestAzSedum() {
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.println("Zadej jméno: ");
 //        String jmeno = scanner.nextLine();
@@ -472,4 +472,30 @@ public class Playground {
 		}
 		System.out.println("Rozveselený text: " + replaced);
     }
+
+	public static void osmnactAzDvacet() {
+//		for (int j = 0; j < 8; j++) {
+//            for (int k = 0; k < 8; k++) {
+//				if ((k+j) % 2 == 0) {
+//					System.out.print("  ");
+//				} else  {
+//					System.out.print("██");
+//				}
+//			}
+//			System.out.println();
+//		}
+
+
+		String znaky = "0123456789ABCDEF";
+		int cislo, mezivysledek, soustava;
+		String vysledek = "";
+		String obracenyVysledek = "";
+		boolean kontrolaZadani = true;
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Číslo v desítkové soustavě: ");
+		cislo = Integer.parseInt(scanner.nextLine());
+
+//		Todo: dodělat ostatní příklady
+	}
 }
