@@ -245,7 +245,7 @@ public class Playground {
 //        }
 
 
-
+//todo: procvičovat
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Zadejte text k zašifrování: ");
@@ -363,36 +363,113 @@ public class Playground {
 //        System.out.println("Průměr: " + soucet/vstupArr.length);
 
 
-        String abeceda = "abcdefghijklmnopqrstuvwxyz";
-        String[] morseovyZnaky = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....",
-                "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-",
-                "...-", ".--", "-..-", "-.--", "--.."};
+//        String abeceda = "abcdefghijklmnopqrstuvwxyz";
+//        String[] morseovyZnaky = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....",
+//                "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-",
+//                "...-", ".--", "-..-", "-.--", "--.."};
+//
+//        Scanner scanner = new Scanner(System.in);
+////        System.out.println("Zadejte zprávu k zakódování: ");
+////        String puvodniZprava = scanner.nextLine().toLowerCase();
+//        String puvodniZprava = "Tento program jsem vytvoril sam, podivejte, co dovede.";
+//        String zasifrovanaZprava = "";
+//
+//        String[] puvodniZpravaMalymaPismenama = puvodniZprava.toLowerCase().split("");
+//
+//        for (String znak : puvodniZpravaMalymaPismenama) {
+//			String morseuvZnak = "";
+//            int index = -1;
+//
+//            for (int i = 0; i < abeceda.length(); i++) {
+//                if (abeceda.contains(znak)) {
+//					index = abeceda.indexOf(znak);
+//                }
+//            }
+//
+//            if (index >= 0) {
+//                morseuvZnak = morseovyZnaky[index] + " ";
+//            }
+//
+//            zasifrovanaZprava += morseuvZnak;
+//		}
+//
+//		System.out.println("Zakódovaná zpráva: " + zasifrovanaZprava);
 
-        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Zadejte zprávu k zakódování: ");
-//        String puvodniZprava = scanner.nextLine().toLowerCase();
-        String puvodniZprava = "Tento program jsem vytvoril sam, podivejte, co dovede.";
-        String zasifrovanaZprava = "";
 
-        String[] puvodniZpravaMalymaPismenama = puvodniZprava.toLowerCase().split("");
+//todo: procvičovat
+//		Scanner scanner = new Scanner(System.in);
+////		System.out.println("Zadej text k rozveselení: ");
+////		String text = scanner.nextLine();
+//
+//		String text = "Dnes jsem zaspal. Také jsem naboural auto! A spolkl mouchu!! Nemám já den blbec?";
+//        String[] smile = {":)", ":D", ":P"};
+//        String[] interpunkce = {".", "!", "?"};
+//
+//		for (int i = 0; i < text.length(); i++) {
+//			for (int j = 0; j < smile.length; j++) {
+////				if (text.contains(interpunkce[j])) {
+////					text = text.replace(interpunkce[j], " " + smile[j]);
+//					text = text.replace(".", " " + smile[j]);
+//					text = text.replace("!", "! " + smile[j]);
+//					text = text.replace(":D!", " ");
+//					text = text.replace("?", " " + smile[j]);
+//				}
 
-        for (String znak : puvodniZpravaMalymaPismenama) {
-			String morseuvZnak = "";
-            int index = -1;
+//				switch (interpunkce[j]) {
+//					case ".": text = text.replace(".", " " + smile[j]);
+//					break;
+//					case "!": text = text.replace("!", "! " + smile[j]);
+//					break;
+//					case "?": text = text.replace("?", "? " + smile[j]);
+//					break;
+//
+//
+//
+//				}
 
-            for (int i = 0; i < abeceda.length(); i++) {
-                if (abeceda.contains(znak)) {
-					index = abeceda.indexOf(znak);
-                }
-            }
+//				if (text.contains("!")) {
+//					text = text.replace("!", "! " + smile[j]);
+//				}
+//			}
+//		}
 
-            if (index >= 0) {
-                morseuvZnak = morseovyZnaky[index] + " ";
-            }
 
-            zasifrovanaZprava += morseuvZnak;
+//
+//		if (text.contains(":D!")) {
+//			text = text.replace(" :D!", "");
+//		}
+//
+//		if (text.contains("?")) {
+//			text = text.replace("?", "? :D");
+//		}
+//
+//		if (text.contains(":D?")) {
+//			text = text.replace(" :D?", "");
+//		}
+
+//		System.out.println(text);
+
+
+		Scanner scanner = new Scanner(System.in, "Windows-1250");
+		System.out.println("Zadej text k rozveselení: ");
+		String text = scanner.nextLine();
+
+		String[] smiles = {" :)", " :D", " :P"};
+
+		int count = 3;
+		String replaced = "";
+
+		for (String split: text.split("")) {
+			if (split.equals(".")) {
+				split = smiles[count % 3];
+				count++;
+			}
+			if (split.equals("!") || split.equals("?")) {
+				split += smiles[count % 3];
+				count++;
+			}
+			replaced += split;
 		}
-
-		System.out.println("Zakódovaná zpráva: " + zasifrovanaZprava);
+		System.out.println("Rozveselený text: " + replaced);
     }
 }
