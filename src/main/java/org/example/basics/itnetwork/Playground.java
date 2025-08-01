@@ -496,6 +496,7 @@ public class Playground {
 		System.out.print("Číslo v desítkové soustavě: ");
 		cislo = Integer.parseInt(scanner.nextLine());
 
-//		Todo: dodělat ostatní příklady
+//		Todo: dodělat ostatní příklady https://www.itnetwork.cz/java/zaklady/java-resene-priklady-vicerozmerna-pole-matematicke-funkce#_pokrocily-priklad
+
 	}
 }
