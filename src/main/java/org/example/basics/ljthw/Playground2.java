@@ -20,16 +20,32 @@ public class Playground2 {
 //		String date = scanner.nextLine();
 //		System.out.println("Today's date is " + date);
 
-		int age = 22;
-		boolean onGuestList = false;
-		double allure = 7.5;
-		String gender = "F";
+//		int age = 22;
+//		boolean onGuestList = false;
+//		double allure = 7.5;
+//		String gender = "F";
+//
+//		if ( onGuestList || age >= 21 || (gender.equals("F") && allure >= 8) ) {
+//			System.out.println("You are allowed to enter the club.");
+//			} else {
+//				System.out.println("You are not allowed to enter the club.");
+//			}
+		int n;
+		String message = "zprava";
 
-		if ( onGuestList || age >= 21 || (gender.equals("F") && allure >= 8) ) {
-			System.out.println("You are allowed to enter the club.");
-			} else {
-				System.out.println("You are not allowed to enter the club.");
-			}
+		for ( n = 5 ; n <= 50 ; n += 5 ) {
+			System.out.println( n + ". " + message );
+		}
+		System.out.println( "\nFinally, three times counting backward." );
+
+		for ( ; n > 0 ; n -= 1 ) {
+			System.out.println( n + ". " + message );
+		}
+
+		int num;
+		for (  num : orderNumbers ) {
+			System.out.println( num + " found.");
+		}
 	}
 }
 //fjfjf
